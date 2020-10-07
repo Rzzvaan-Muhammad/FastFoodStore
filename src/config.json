@@ -1,0 +1,7 @@
+{
+  "localURL": "http://localhost:53621/wapi",
+  "oDataLocal": "http://86.14.11.234/FastFoodStoreWAPI/Odata",
+  "serverURL": "http://86.14.11.234/FastFoodStoreWAPI/wapi",
+  "oDataServer": "http://86.14.11.234/FastFoodStoreWAPI/Odata",
+  "portalLocal": "http://localhost:53621/wapi"
+}

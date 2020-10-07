@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  padding: 0 0 0 0 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background: rgba(256, 256, 256) !important;
+  font-size: 16px;
+  /* direction: rtl; */
+  /* text-align: right; */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.m-20 {
+  margin-bottom: 20px;
+}
+
+.area {
+  width: 29em;
+  padding: 15px;
+  border: 1px solid rgba(236, 221, 221, 0.918);
+  /* background: rgb(133, 133, 133); */
+}
+#input-file-now-custom-2 {
+  /* border: 2px dashed #bbb; */
+  border: 2px dashed #ccc;
+
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 70px;
+  text-align: center;
+  font: 12pt bold arial;
+  color: #bbb;
+}
+.flex-centered {
+  /* display: flex; */
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+}
+
+.required::after {
+  content: "*";
+  color: red;
+  font-weight: bold;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.card-header {
+  background-color: #fff !important;
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  display: block !important;
+}
+/* #drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  width: 480px;
+  font-family: sans-serif;
+  margin: 100px auto;
+  padding: 20px;
+} */
+#drop-area.highlight {
+  border-color: purple;
+}
+p {
+  margin-top: 0;
+}
+.my-form {
+  margin-bottom: 10px;
+}
+#gallery {
+  margin-top: 10px;
+}
+#gallery img {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.button {
+  display: inline-block;
+  padding: 10px;
+  background: #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.button:hover {
+  background: #ddd;
+}
+#fileElem {
+  display: none;
+}
+.border {
+  border-style: solid;
+  border-color: red;
+}
+element {
+  @include float-left;
+}
+another-element {
+  @include float-right;
+}
+.ml-1 {
+  margin-left: ($spacer * 0.5) !important;
+}
+/* body {
+  direction: rtl;
+  text-align:right
+} */

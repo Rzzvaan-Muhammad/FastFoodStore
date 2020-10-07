@@ -1,0 +1,5 @@
+// Override default variables before the import
+$card-cap-bg: #fff;
+
+// Import Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap.scss";
