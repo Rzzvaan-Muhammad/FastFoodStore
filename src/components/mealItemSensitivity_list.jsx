@@ -29,8 +29,8 @@ class MealItemSensitivitiesListView extends Component {
   }
 
   async componentDidMount() {
-    const { dispatch } = this.context;
-    dispatch({ type: "" });
+    // const { dispatch } = this.context;
+    // dispatch({ type: "" });
 
     const { data: response } = await getMealItemSensitivities();
     this.setState({ MealItemSensitivities: response.Result });

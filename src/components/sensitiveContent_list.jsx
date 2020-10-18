@@ -29,8 +29,8 @@ class SensitiveContentsListView extends Component {
   }
 
   async componentDidMount() {
-    const { dispatch } = this.context;
-    dispatch({ type: "ExpenseType" });
+    // const { dispatch } = this.context;
+    // dispatch({ type: "ExpenseType" });
 
     const { data: response } = await getSensitiveContents();
     this.setState({ SensitiveContents: response.Result });

@@ -7,24 +7,24 @@ import { getDUAttachments } from "../services/DUTaskAttachmentServices";
 const Example = props => {
   const [src, setSrc] = useState("");
 
-  useEffect(() => {
-    const getFilePath = async id => {
-      console.log("TCL: id", id);
-      const filter = {
-        RecordId: id,
-        AppName: "FastFoodStore",
-        ModuleName: "MealBox"
-      };
-      const { data: response } = await getDUAttachments(filter);
-      const Attachment = response.Result[0];
-      const ext = Attachment.FilePath.substr(Attachment.FilePath.lastIndexOf("\\") + 1);
-      const image = `http://86.14.11.234/FastFoodStoreWAPI/Attachments/${ext}${Attachment.FileType}`;
+  // useEffect(() => {
+  //   const getFilePath = async id => {
+  //     console.log("TCL: id", id);
+  //     const filter = {
+  //       RecordId: id,
+  //       AppName: "FastFoodStore",
+  //       ModuleName: "MealBox"
+  //     };
+  //     const { data: response } = await getDUAttachments(filter);
+  //     const Attachment = response.Result[0];
+  //     const ext = Attachment.FilePath.substr(Attachment.FilePath.lastIndexOf("\\") + 1);
+  //     const image = `http://86.14.11.234/FastFoodStoreWAPI/Attachments/${ext}${Attachment.FileType}`;
 
-      setSrc(image);
-    };
+  //     setSrc(image);
+  //   };
 
-    getFilePath(props.item.Id);
-  }, [props.item.Id]);
+  //   getFilePath(props.item.Id);
+  // }, [props.item.Id]);
   // return image;
 
   return (

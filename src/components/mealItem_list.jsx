@@ -30,8 +30,8 @@ class MealItemsListView extends Component {
   }
 
   async componentDidMount() {
-    const { dispatch } = this.context;
-    dispatch({ type: "  " });
+    // const { dispatch } = this.context;
+    // dispatch({ type: "  " });
 
     const { data: response } = await getMealItems();
     this.setState({ MealItems: response.Result });

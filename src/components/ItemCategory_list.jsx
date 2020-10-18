@@ -30,8 +30,8 @@ class ItemCategorysListView extends Component {
   }
 
   async componentDidMount() {
-    const { dispatch } = this.context;
-    dispatch({ type: "ExpenseType" });
+    // const { dispatch } = this.context;
+    // dispatch({ type: "ExpenseType" });
     const { data: response } = await getItemCategorys();
     this.setState({ ItemCategorys: response.Result });
 

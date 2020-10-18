@@ -28,8 +28,8 @@ class SpiceLevelsListView extends Component {
   }
 
   async componentDidMount() {
-    const { dispatch } = this.context;
-    dispatch({ type: "ExpenseType" });
+    // const { dispatch } = this.context;
+    // dispatch({ type: "ExpenseType" });
 
     const { data: response } = await getSpiceLevels();
     this.setState({ SpiceLevels: response.Result });

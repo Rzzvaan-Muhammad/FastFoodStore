@@ -25,7 +25,7 @@ class App extends React.Component {
           <ToastContainer autoClose={2000} />
           <Suspense fallback={<Loading />}>
             <Switch>
-              <Route path="/" exact component={LoginForm} />
+              {/* <Route path="/" exact component={LoginForm} /> */}
               <AppRoutes />
               <Route component={NotFound} />
             </Switch>

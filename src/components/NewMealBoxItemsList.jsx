@@ -28,10 +28,7 @@ class MealBoxItemsListView extends Component {
     getMealBoxes();
     const { data: response } = await getMealBoxItems();
     const list = [...response.Result];
-    console.log("TCL: MealBoxItemsListView -> componentDidMount -> this.props.mealBoxId", this.props.mealBoxId);
-    console.log("TCL: MealBoxItemsListView -> componentDidMount -> response.Result", response.Result);
     const MealItems = list.filter(c => c.MealBoxIdFK === this.props.mealBoxId);
-    console.log("TCL: MealBoxItemsListView -> componentDidMount -> MealItems", MealItems);
 
     this.setState({ MealBoxItems: MealItems });
   }

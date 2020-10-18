@@ -29,8 +29,8 @@ class MealBoxItemsListView extends Component {
   }
 
   async componentDidMount() {
-    const { dispatch } = this.context;
-    dispatch({ type: "ExpenseType" });
+    // const { dispatch } = this.context;
+    // dispatch({ type: "ExpenseType" });
 
     await getMealItems();
     await getMealBoxes();
