@@ -47,7 +47,7 @@ const {
   bugsRequestFailed
 } = slice.actions;
 export default slice.reducer;
-const url = "/bugs";
+const url = "/MealBoxs";
 export const loadBugs = () => (dispatch, getState) => {
   const { lastFetch } = getState().entites.bugs;
   const diffInMinutes = moment().diff(moment(lastFetch), "minutes");
