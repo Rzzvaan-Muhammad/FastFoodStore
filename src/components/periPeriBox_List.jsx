@@ -161,12 +161,6 @@ class MealBoxesListView extends Component {
                 onDoubleClick={() => this.handleSelect(-1)}
               >
                 <Row>
-                  {/* <Col className="float-left">
-                    <span className="ml-2" style={{ fontSize: "1rem", fontWeight: 600 }}>
-                      <TranslateText defaultText="Meal Boxes" resourceId="lbl_MealBoxes" />
-                      <br />
-                    </span>
-                  </Col> */}
                   <Col xs="*">
                     <CartComponent buttonLabel="Cart" />
                   </Col>
@@ -178,8 +172,6 @@ class MealBoxesListView extends Component {
                     <Col
                       key={item.Id}
                       style={{ width: "300%", height: "10%" }}
-                      // className="col-md-3 ml-1"
-                      // md={{ size: 3, offset: 0.5 }}
                     >
                       <FastFoodStore
                         item={item}
@@ -193,7 +185,6 @@ class MealBoxesListView extends Component {
                     </Col>
                   ))}
                 </Row>
-                {/* <Row xs="2" className="padding-right" /> */}
               </CardBody>
             </Card>
           </div>

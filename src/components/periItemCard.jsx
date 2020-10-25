@@ -11,7 +11,9 @@ import {
 import { ProgressBar } from "../common/Progress";
 import Model from "./Model";
 import { getDUAttachments } from "../services/DUTaskAttachmentServices";
-import CaratModel from "./CaratModel";
+// import CaratModel from "./CaratModel";
+import CaratModel from "./CartReduxModel";
+
 import { deleteMealBox, getMealBox } from "../services/mealBoxServices";
 
 const Example = props => {
