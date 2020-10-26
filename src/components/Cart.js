@@ -20,7 +20,9 @@ const Cart = () => {
       <div>
         <Row style={{ marginBottom: 15 }}>
           <Col className="img-fluid">
-            <b>{/* <span className="chead-icon-length">Items : {cart.length + Count === 1 ? 0 : Count}</span> */}</b>
+            <b>
+              {/* <span className="chead-icon-length">Items : {cart.length + Count === 1 ? 0 : Count}</span> */}
+            </b>
           </Col>
 
           <Col>

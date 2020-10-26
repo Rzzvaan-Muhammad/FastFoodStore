@@ -11,12 +11,12 @@ import {
   CardImg,
   ButtonToolbar,
   ButtonGroup,
-  Col,
+  Col
 } from "reactstrap";
 import { CartContext } from "./CartContext";
 import { getMealBox } from "../services/mealBoxServices";
 
-const CaratModel = (props) => {
+const CaratModel = props => {
   const { buttonLabel, className } = props;
   let ArrayLength;
   const [modal, setModal] = useState(false);
@@ -32,7 +32,7 @@ const CaratModel = (props) => {
   const decrementCount = () => {
     setcount(count - 1);
   };
-  const handlePrice = (obj) => {
+  const handlePrice = obj => {
     // let result;
     obj.MealBoxPrice = count * obj.MealBoxPrice;
     console.log("result", obj);
@@ -69,10 +69,10 @@ const CaratModel = (props) => {
       name: props.Title,
       price: props.Price,
       Count: count,
-      Length: ArrayLength,
+      Length: ArrayLength
     };
 
-    setCart((currentState) => [...currentState, Items]);
+    setCart(currentState => [...currentState, Items]);
     toggle();
     addBox();
   };
@@ -101,11 +101,17 @@ const CaratModel = (props) => {
           </div>
           <ButtonToolbar>
             <ButtonGroup className="btn btn-white">
-              <Button className="btn btn-danger btn-outline-danger" onClick={() => decrementCount()}>
+              <Button
+                className="btn btn-danger btn-outline-danger"
+                onClick={() => decrementCount()}
+              >
                 <b>-</b>
               </Button>
               <div className="btn btn-outline-black disabled">{count}</div>
-              <Button className="btn btn-danger btn-outline-danger" onClick={() => increaseCount()}>
+              <Button
+                className="btn btn-danger btn-outline-danger"
+                onClick={() => increaseCount()}
+              >
                 <b>+</b>
               </Button>
             </ButtonGroup>

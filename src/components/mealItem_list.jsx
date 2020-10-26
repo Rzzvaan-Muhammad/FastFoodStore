@@ -52,7 +52,8 @@ class MealItemsListView extends Component {
     const MealItems = this.state.MealItems.filter(c => c.Id !== id);
     this.setState({ MealItems });
     const { data: response } = await deleteMealItem(id);
-    if (response.status >= 400 && response.status < 500) this.setState({ MealItems: originalMealItems });
+    if (response.status >= 400 && response.status < 500)
+      this.setState({ MealItems: originalMealItems });
   };
 
   handleTrackChanges = id => {
@@ -98,9 +99,14 @@ class MealItemsListView extends Component {
 
     const filtered = allMealItems;
 
-    if (itemName || itemPrice || caloriesCount) filtered = this.filteredResult();
+    if (itemName || itemPrice || caloriesCount)
+      filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const MealItems = paginate(sorted, currentPage, pageSize);
 
@@ -122,11 +128,20 @@ class MealItemsListView extends Component {
     return (
       <>
         <Card>
-          <CardHeader className=" text-uppercase font-weight-bold" onDoubleClick={() => this.handleSelect(-1)}>
+          <CardHeader
+            className=" text-uppercase font-weight-bold"
+            onDoubleClick={() => this.handleSelect(-1)}
+          >
             <Row>
               <Col className="float-left">
-                <span className="ml-2" style={{ fontSize: "1rem", fontWeight: 600 }}>
-                  <TranslateText defaultText="Meal Items" resourceId="lbl_MealItems" />
+                <span
+                  className="ml-2"
+                  style={{ fontSize: "1rem", fontWeight: 600 }}
+                >
+                  <TranslateText
+                    defaultText="Meal Items"
+                    resourceId="lbl_MealItems"
+                  />
                   <br />
                 </span>
               </Col>

@@ -1,11 +1,36 @@
 /* eslint-disable no-return-assign */
 import React, { useState } from "react";
-import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, ButtonGroup } from "reactstrap";
+import {
+  Button,
+  ButtonDropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  ButtonGroup
+} from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faEdit, faTrash, faFileDownload, faEye, faFileExport } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faEdit,
+  faTrash,
+  faFileDownload,
+  faEye,
+  faFileExport
+} from "@fortawesome/free-solid-svg-icons";
 import TranslateText from "../common/translateText";
 
-const ButtonPanel = ({ id, onAdd, onView, onEdit, onDelete, onExport, onDownload, onTrackChanges, show, Download }) => {
+const ButtonPanel = ({
+  id,
+  onAdd,
+  onView,
+  onEdit,
+  onDelete,
+  onExport,
+  onDownload,
+  onTrackChanges,
+  show,
+  Download
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -38,7 +63,10 @@ const ButtonPanel = ({ id, onAdd, onView, onEdit, onDelete, onExport, onDownload
             {Download && (
               <DropdownItem onClick={() => onDownload(id)} disabled={id < 0}>
                 <FontAwesomeIcon icon={faFileDownload} className="mr-3" />
-                <TranslateText defaultText="Download" resourceId="lbl_Download" />
+                <TranslateText
+                  defaultText="Download"
+                  resourceId="lbl_Download"
+                />
               </DropdownItem>
             )}
             {
@@ -59,9 +87,15 @@ const ButtonPanel = ({ id, onAdd, onView, onEdit, onDelete, onExport, onDownload
             )}
 
             {show === "false" && (
-              <DropdownItem onClick={() => onTrackChanges(id)} disabled={id < 0}>
+              <DropdownItem
+                onClick={() => onTrackChanges(id)}
+                disabled={id < 0}
+              >
                 <FontAwesomeIcon icon={faEdit} className="mr-3" />
-                <TranslateText defaultText="Track Changes" resourceId="lbl_Track_Changes" />
+                <TranslateText
+                  defaultText="Track Changes"
+                  resourceId="lbl_Track_Changes"
+                />
               </DropdownItem>
             )}
           </DropdownMenu>

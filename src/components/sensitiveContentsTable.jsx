@@ -20,7 +20,14 @@ class SensitiveContentsTable extends Component {
   ];
 
   render() {
-    const { SensitiveContents, onSort, sortColumn, onSelect, selected, onView } = this.props;
+    const {
+      SensitiveContents,
+      onSort,
+      sortColumn,
+      onSelect,
+      selected,
+      onView
+    } = this.props;
 
     return (
       <Table

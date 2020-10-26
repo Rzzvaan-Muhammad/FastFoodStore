@@ -7,7 +7,10 @@ import { toast } from "react-toastify";
 import ButtonPanel from "./buttonPanel";
 import Pagination from "../common/pagination";
 import paginate from "../utils/paginate";
-import { deleteDUAttachment, getDUAttachments } from "../services/DUTaskAttachmentServices";
+import {
+  deleteDUAttachment,
+  getDUAttachments
+} from "../services/DUTaskAttachmentServices";
 import DUTaskAttachmentTable from "./DUTaskAttachmentTable";
 import { getFile, savaDataToFile } from "../services/fileServices";
 
@@ -44,7 +47,9 @@ class DUTaskAttachmentsListView extends Component {
 
   handleDelete = async id => {
     const originalDUTaskAttachments = this.state.DUTaskAttachments;
-    const DUTaskAttachments = this.state.DUTaskAttachments.filter(c => c.Id !== id);
+    const DUTaskAttachments = this.state.DUTaskAttachments.filter(
+      c => c.Id !== id
+    );
     this.setState({ DUTaskAttachments });
     const { data: response } = await deleteDUAttachment(id);
     if (response.status >= 400 && response.status < 500)
@@ -87,14 +92,24 @@ class DUTaskAttachmentsListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, sortColumn, DUTaskAttachments: allDUTaskAttachments, name } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      DUTaskAttachments: allDUTaskAttachments,
+      name
+    } = this.state;
 
     let filtered = allDUTaskAttachments;
 
     if (name) filtered = this.filteredResult();
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const DUTaskAttachments = paginate(sorted, currentPage, pageSize);
     return { totalCount: filtered.length, data: DUTaskAttachments };

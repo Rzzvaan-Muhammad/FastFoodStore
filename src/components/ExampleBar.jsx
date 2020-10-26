@@ -24,7 +24,11 @@ class ExampleBar extends Component {
         <nav className="navbar navbar-expand sidebar-float-right navbar-dark bg-light">
           <a href="#menu-toggle" id="menu-toggle" className="navbar-brand">
             {/* <span className="navbar-toggler-icon" /> */}
-            <NavLink className="nav-close float-right" to="#" onClick={() => this.toggleCollapse()}>
+            <NavLink
+              className="nav-close float-right"
+              to="#"
+              onClick={() => this.toggleCollapse()}
+            >
               <FontAwesomeIcon className="mr-2 fa-fw" size="2x" icon={faBars} />
             </NavLink>
           </a>

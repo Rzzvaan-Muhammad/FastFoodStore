@@ -5,7 +5,10 @@ import _ from "lodash";
 
 import Pagination from "../common/pagination";
 import paginate from "../utils/paginate";
-import { deleteMealBoxItem, getMealBoxItems } from "../services/mealBoxItemServices";
+import {
+  deleteMealBoxItem,
+  getMealBoxItems
+} from "../services/mealBoxItemServices";
 import MealBoxItemsTable from "./mealBoxItemsTable";
 import { getMealItems, getMealBoxes } from "../services/listServices";
 
@@ -38,7 +41,8 @@ class MealBoxItemsListView extends Component {
     const MealBoxItems = this.state.MealBoxItems.filter(c => c.Id !== id);
     this.setState({ MealBoxItems });
     const { data: response } = await deleteMealBoxItem(id);
-    if (response.status >= 400 && response.status < 500) this.setState({ MealBoxItems: originalMealBoxItems });
+    if (response.status >= 400 && response.status < 500)
+      this.setState({ MealBoxItems: originalMealBoxItems });
   };
 
   handleTrackChanges = id => {
@@ -78,13 +82,22 @@ class MealBoxItemsListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, sortColumn, MealBoxItems: allMealBoxItems } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      MealBoxItems: allMealBoxItems
+    } = this.state;
 
     const filtered = allMealBoxItems;
 
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const MealBoxItems = paginate(sorted, currentPage, pageSize);
 

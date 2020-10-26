@@ -8,7 +8,10 @@ import ButtonPanel from "./buttonPanel";
 import Pagination from "../common/pagination";
 import paginate from "../utils/paginate";
 import SearchForm from "../forms/searchForm";
-import { deleteMealBoxItem, getMealBoxItems } from "../services/mealBoxItemServices";
+import {
+  deleteMealBoxItem,
+  getMealBoxItems
+} from "../services/mealBoxItemServices";
 import MealBoxItemsTable from "./mealBoxItemsTable";
 import TranslateText from "../common/translateText";
 import { getMealItems, getMealBoxes } from "../services/listServices";
@@ -43,7 +46,8 @@ class MealBoxItemsListView extends Component {
     const MealBoxItems = this.state.MealBoxItems.filter(c => c.Id !== id);
     this.setState({ MealBoxItems });
     const { data: response } = await deleteMealBoxItem(id);
-    if (response.status >= 400 && response.status < 500) this.setState({ MealBoxItems: originalMealBoxItems });
+    if (response.status >= 400 && response.status < 500)
+      this.setState({ MealBoxItems: originalMealBoxItems });
   };
 
   handleTrackChanges = id => {
@@ -83,13 +87,22 @@ class MealBoxItemsListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, sortColumn, MealBoxItems: allMealBoxItems } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      MealBoxItems: allMealBoxItems
+    } = this.state;
 
     const filtered = allMealBoxItems;
 
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const MealBoxItems = paginate(sorted, currentPage, pageSize);
 
@@ -115,8 +128,14 @@ class MealBoxItemsListView extends Component {
             <Row>
               <Col className="float-left">
                 <FontAwesomeIcon icon={faListAlt} />
-                <span className="ml-2" style={{ fontSize: "1rem", fontWeight: 600 }}>
-                  <TranslateText defaultText="MealBoxItems" resourceId="lbl_MealBoxItems" />
+                <span
+                  className="ml-2"
+                  style={{ fontSize: "1rem", fontWeight: 600 }}
+                >
+                  <TranslateText
+                    defaultText="MealBoxItems"
+                    resourceId="lbl_MealBoxItems"
+                  />
                   <br />
                   {totalCount}
                   <TranslateText defaultText="found" resourceId="lbl_found" />

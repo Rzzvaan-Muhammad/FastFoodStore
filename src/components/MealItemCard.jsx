@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button, Row, Col } from "reactstrap";
+import {
+  Card,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  Button,
+  Row,
+  Col
+} from "reactstrap";
 import { ProgressBar } from "../common/Progress";
 import Model from "./Model";
 import { getDUAttachments } from "../services/DUTaskAttachmentServices";
@@ -57,18 +66,27 @@ const Example = props => {
           </CardText>
           <Row>
             <Col>
-              <Model buttonLabel="Allergens" Id={props.item.Id} Allergens={props.Allergens} />
+              <Model
+                buttonLabel="Allergens"
+                Id={props.item.Id}
+                Allergens={props.Allergens}
+              />
             </Col>
           </Row>
           <br />
           <Row>
             <Col>
-              <button className="btn btn-danger" onClick={() => props.onEdit(props.item.Id)}>
+              <Button
+                className="btn btn-danger"
+                onClick={() => props.onEdit(props.item.Id)}
+              >
                 Edit
-              </button>
+              </Button>
             </Col>
             <Col>
-              <Button onClick={() => props.Delete(props.item.Id)}>Delete</Button>
+              <Button onClick={() => props.Delete(props.item.Id)}>
+                Delete
+              </Button>
             </Col>
           </Row>
         </CardBody>

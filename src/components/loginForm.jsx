@@ -47,13 +47,22 @@ class LoginForm extends Form {
     return (
       <div className=".body text-center flex-centered">
         <form className="form-signin" onSubmit={this.handleSubmit}>
-          <FontAwesomeIcon className="m-2" size="5x" icon={faUser} alt="User Check" />
+          <FontAwesomeIcon
+            className="m-2"
+            size="5x"
+            icon={faUser}
+            alt="User Check"
+          />
           <p className="h3 m-2 font-weight-normal">Please sign in</p>
           {this.renderInput("username", "username")}
           {this.renderInput("password", "password", "password", {
             required: true
           })}
-          <button disabled={this.validate()} className="btn btn-lg btn-primary btn-block" type="submit">
+          <button
+            disabled={this.validate()}
+            className="btn btn-lg btn-primary btn-block"
+            type="submit"
+          >
             Sign in
           </button>
           <div className="checkbox mb-3">

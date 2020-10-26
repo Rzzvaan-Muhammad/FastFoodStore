@@ -1,5 +1,10 @@
 import React from "react";
-import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
+import {
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
 import Languages from "../common/languages";
 import TranslateText from "../common/translateText";
 

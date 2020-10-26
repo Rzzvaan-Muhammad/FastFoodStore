@@ -18,7 +18,14 @@ class ProductsTable extends Component {
   ];
 
   render() {
-    const { ItemCategorys, onSort, sortColumn, onSelect, selected, onView } = this.props;
+    const {
+      ItemCategorys,
+      onSort,
+      sortColumn,
+      onSelect,
+      selected,
+      onView
+    } = this.props;
 
     return (
       <Table

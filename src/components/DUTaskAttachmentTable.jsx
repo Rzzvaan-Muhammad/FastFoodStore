@@ -53,7 +53,14 @@ class DUTaskCategoriesTable extends Component {
   ];
 
   render() {
-    const { DUTaskAttachments, onSort, sortColumn, onSelect, selected, onView } = this.props;
+    const {
+      DUTaskAttachments,
+      onSort,
+      sortColumn,
+      onSelect,
+      selected,
+      onView
+    } = this.props;
 
     return (
       <Table

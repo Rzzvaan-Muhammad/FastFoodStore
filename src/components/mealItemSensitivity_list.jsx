@@ -9,7 +9,10 @@ import Pagination from "../common/pagination";
 import paginate from "../utils/paginate";
 import SearchForm from "../forms/searchForm";
 
-import { deleteMealItemSensitivity, getMealItemSensitivities } from "../services/mealItemSensitivityServices";
+import {
+  deleteMealItemSensitivity,
+  getMealItemSensitivities
+} from "../services/mealItemSensitivityServices";
 import MealItemSensitivitiesTable from "./mealItemSensitivitiesTable";
 import TranslateText from "../common/translateText";
 import { AccessContext } from "../contexts/accessContext";
@@ -38,7 +41,9 @@ class MealItemSensitivitiesListView extends Component {
 
   handleDelete = async id => {
     const originalMealItemSensitivities = this.state.MealItemSensitivities;
-    const MealItemSensitivities = this.state.MealItemSensitivities.filter(c => c.Id !== id);
+    const MealItemSensitivities = this.state.MealItemSensitivities.filter(
+      c => c.Id !== id
+    );
     this.setState({ MealItemSensitivities });
     const { data: response } = await deleteMealItemSensitivity(id);
     if (response.status >= 400 && response.status < 500)
@@ -82,13 +87,22 @@ class MealItemSensitivitiesListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, sortColumn, MealItemSensitivities: allMealItemSensitivities } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      MealItemSensitivities: allMealItemSensitivities
+    } = this.state;
 
     const filtered = allMealItemSensitivities;
 
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const MealItemSensitivities = paginate(sorted, currentPage, pageSize);
 
@@ -110,12 +124,21 @@ class MealItemSensitivitiesListView extends Component {
     return (
       <>
         <Card>
-          <CardHeader className=" font-weight-bold" onDoubleClick={() => this.handleSelect(-1)}>
+          <CardHeader
+            className=" font-weight-bold"
+            onDoubleClick={() => this.handleSelect(-1)}
+          >
             <Row>
               <Col className="float-left">
                 <FontAwesomeIcon icon={faListAlt} />
-                <span className="ml-2" style={{ fontSize: "1rem", fontWeight: 600 }}>
-                  <TranslateText defaultText="Meal Item Sensitivities" resourceId="lbl_MealItemSensitivities" />
+                <span
+                  className="ml-2"
+                  style={{ fontSize: "1rem", fontWeight: 600 }}
+                >
+                  <TranslateText
+                    defaultText="Meal Item Sensitivities"
+                    resourceId="lbl_MealItemSensitivities"
+                  />
                   <br />
                   {totalCount}
                   <TranslateText defaultText="found" resourceId="lbl_found" />

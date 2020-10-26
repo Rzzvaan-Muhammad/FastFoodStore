@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getMealBox } from "../services/mealBoxServices";
-import { loadBugs } from "../store/bug";
+import { loadBugs } from "../store/Cart";
 
 const CaratModel = props => {
   const { buttonLabel, className } = props;
@@ -27,7 +27,6 @@ const CaratModel = props => {
 
   useEffect(() => {
     dispatch(loadBugs());
-    console.log("bugs", bugs);
   }, [bugs, dispatch]);
   const addBox = async () => {
     // const objList = await getMealBox(props.Id);

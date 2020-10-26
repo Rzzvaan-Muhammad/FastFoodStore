@@ -8,7 +8,10 @@ import ButtonPanel from "../buttonPanel";
 import Pagination from "../../common/pagination";
 import paginate from "../../utils/paginate";
 import SearchForm from "../forms/searchForm";
-import { deleteDUAttachment, getDUAttachments } from "../../services/DUTaskAttachmentServices";
+import {
+  deleteDUAttachment,
+  getDUAttachments
+} from "../../services/DUTaskAttachmentServices";
 import DUTaskAttachmentTable from "../tables/DUTaskAttachmentTable";
 import TranslateText from "../../common/translateText";
 
@@ -39,7 +42,9 @@ class DUTaskAttachmentsListView extends Component {
 
   handleDelete = async id => {
     const originalDUTaskAttachments = this.state.DUTaskAttachments;
-    const DUTaskAttachments = this.state.DUTaskAttachments.filter(c => c.Id !== id);
+    const DUTaskAttachments = this.state.DUTaskAttachments.filter(
+      c => c.Id !== id
+    );
     this.setState({ DUTaskAttachments });
     console.log("TCL: DUTaskAttachmentsListView -> id", id);
     const { data: response } = await deleteDUAttachment(id);
@@ -83,14 +88,23 @@ class DUTaskAttachmentsListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, sortColumn, DUTaskAttachments: allDUTaskAttachments } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      DUTaskAttachments: allDUTaskAttachments
+    } = this.state;
 
     const filtered = allDUTaskAttachments;
 
     // if (name) filtered = this.filteredResult();
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const DUTaskAttachments = paginate(sorted, currentPage, pageSize);
 
@@ -117,7 +131,10 @@ class DUTaskAttachmentsListView extends Component {
               <Col className="float-left">
                 <span style={{ fontSize: "1.5rem", fontWeight: 600 }}>
                   <FontAwesomeIcon className="mr-2" icon={faListAlt} />
-                  <TranslateText defaultText="Task Attachments" resourceId="lbl_Task_Attachments" />
+                  <TranslateText
+                    defaultText="Task Attachments"
+                    resourceId="lbl_Task_Attachments"
+                  />
                 </span>
               </Col>
               <Col xs="*" md="8">

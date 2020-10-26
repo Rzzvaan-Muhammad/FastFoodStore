@@ -33,11 +33,19 @@ class Counter extends Component {
         </div>
         <ButtonToolbar>
           <ButtonGroup className="btn btn-white">
-            <Button className="btn btn-danger btn-outline-danger" onClick={this.decrementCount}>
+            <Button
+              className="btn btn-danger btn-outline-danger"
+              onClick={this.decrementCount}
+            >
               <b>-</b>
             </Button>
-            <div className="btn btn-outline-black disabled">{this.state.count}</div>
-            <Button className="btn btn-danger btn-outline-danger" onClick={this.increaseCount}>
+            <div className="btn btn-outline-black disabled">
+              {this.state.count}
+            </div>
+            <Button
+              className="btn btn-danger btn-outline-danger"
+              onClick={this.increaseCount}
+            >
               <b>+</b>
             </Button>
           </ButtonGroup>

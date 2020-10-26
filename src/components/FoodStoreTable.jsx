@@ -23,12 +23,11 @@ class StoreItems extends Component {
                   <td className="col-sm-12 col-md-10">
                     <div className="media">
                       <a className="thumbnail pull-left">
-                        {" "}
                         <img
                           className="media-object"
                           src="https://picsum.photos/200"
                           style={{ width: "72px", height: "72px;" }}
-                        />{" "}
+                        />
                       </a>
                       <div className="media-body">
                         <h4 className="media-heading">Meal Box One</h4>
@@ -43,7 +42,12 @@ class StoreItems extends Component {
                     </div>
                   </td>
                   <td className="col-sm-1 col-md-1" style={{ align: "center" }}>
-                    <input type="email" className="form-control" id="exampleInputEmail1" value="3" />
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      value="3"
+                    />
                   </td>
                   <td className="col-sm-1 col-md-1 text-center">
                     <strong>$4.87</strong>
@@ -61,7 +65,6 @@ class StoreItems extends Component {
                   <td className="col-md-6">
                     <div className="media">
                       <a className="thumbnail pull-left">
-                        {" "}
                         <img
                           className="media-object"
                           src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
@@ -73,7 +76,6 @@ class StoreItems extends Component {
                           <a>Meal Box Two</a>
                         </h4>
                         <h5 className="media-heading">
-                          {" "}
                           by <a>Brand name</a>
                         </h5>
                         <span>Status: </span>
@@ -84,7 +86,12 @@ class StoreItems extends Component {
                     </div>
                   </td>
                   <td className="col-md-1" style={{ align: "center" }}>
-                    <input type="email" className="form-control" id="exampleInputEmail1" value="2" />
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      value="2"
+                    />
                   </td>
                   <td className="col-md-1 text-center">
                     <strong>$4.99</strong>
@@ -143,7 +150,8 @@ class StoreItems extends Component {
                   <td>   </td>
                   <td>
                     <button type="button" className="btn btn-default">
-                      <span className="glyphicon glyphicon-shopping-cart" /> Continue Shopping
+                      <span className="glyphicon glyphicon-shopping-cart" />
+                      Continue Shopping
                     </button>
                   </td>
                   <td>

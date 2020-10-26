@@ -70,7 +70,8 @@ class MealBoxesListView extends Component {
     const MealBoxes = this.state.MealBoxes.filter(c => c.Id !== id);
     this.setState({ MealBoxes });
     const { data: response } = await deleteMealBox(id);
-    if (response.status >= 400 && response.status < 500) this.setState({ MealBoxes: originalMealBoxes });
+    if (response.status >= 400 && response.status < 500)
+      this.setState({ MealBoxes: originalMealBoxes });
   };
 
   handleTrackChanges = id => {
@@ -121,10 +122,15 @@ class MealBoxesListView extends Component {
 
     const filtered = allMealBoxes;
 
-    if (mealBoxTitle || description || mealBoxPrice || totalCalories) filtered = this.filteredResult();
+    if (mealBoxTitle || description || mealBoxPrice || totalCalories)
+      filtered = this.filteredResult();
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const MealBoxes = paginate(sorted, currentPage, pageSize);
 
@@ -153,8 +159,14 @@ class MealBoxesListView extends Component {
             >
               <Row>
                 <Col className="float-left">
-                  <span className="ml-2" style={{ fontSize: "1rem", fontWeight: 600 }}>
-                    <TranslateText defaultText="Meal Boxes" resourceId="lbl_MealBoxes" />
+                  <span
+                    className="ml-2"
+                    style={{ fontSize: "1rem", fontWeight: 600 }}
+                  >
+                    <TranslateText
+                      defaultText="Meal Boxes"
+                      resourceId="lbl_MealBoxes"
+                    />
                     <br />
                   </span>
                 </Col>

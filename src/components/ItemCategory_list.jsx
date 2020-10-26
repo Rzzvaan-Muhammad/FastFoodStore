@@ -9,7 +9,10 @@ import Pagination from "../common/pagination";
 import paginate from "../utils/paginate";
 import SearchForm from "../forms/searchForm";
 
-import { deleteItemCategory, getItemCategorys } from "../services/ItemCategoryServices";
+import {
+  deleteItemCategory,
+  getItemCategorys
+} from "../services/ItemCategoryServices";
 import ItemCategoriesTable from "./ItemCategorysTable";
 import TranslateText from "../common/translateText";
 import { getSensitiveContents } from "../services/listServices";
@@ -43,7 +46,8 @@ class ItemCategorysListView extends Component {
     const ItemCategorys = this.state.ItemCategorys.filter(c => c.Id !== id);
     this.setState({ ItemCategorys });
     const { data: response } = await deleteItemCategory(id);
-    if (response.status >= 400 && response.status < 500) this.setState({ ItemCategorys: originalItemCategorys });
+    if (response.status >= 400 && response.status < 500)
+      this.setState({ ItemCategorys: originalItemCategorys });
   };
 
   handleTrackChanges = id => {
@@ -83,13 +87,22 @@ class ItemCategorysListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, sortColumn, ItemCategorys: allItemCategorys } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      ItemCategorys: allItemCategorys
+    } = this.state;
 
     const filtered = allItemCategorys;
 
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const ItemCategorys = paginate(sorted, currentPage, pageSize);
 
@@ -111,12 +124,21 @@ class ItemCategorysListView extends Component {
     return (
       <>
         <Card>
-          <CardHeader className=" font-weight-bold" onDoubleClick={() => this.handleSelect(-1)}>
+          <CardHeader
+            className=" font-weight-bold"
+            onDoubleClick={() => this.handleSelect(-1)}
+          >
             <Row>
               <Col className="float-left">
                 <FontAwesomeIcon icon={faListAlt} />
-                <span className="ml-2" style={{ fontSize: "1rem", fontWeight: 600 }}>
-                  <TranslateText defaultText="Item Categorys" resourceId="lbl_ItemCategorys" />
+                <span
+                  className="ml-2"
+                  style={{ fontSize: "1rem", fontWeight: 600 }}
+                >
+                  <TranslateText
+                    defaultText="Item Categorys"
+                    resourceId="lbl_ItemCategorys"
+                  />
                   <br />
                   {totalCount}
                   <TranslateText defaultText="found" resourceId="lbl_found" />

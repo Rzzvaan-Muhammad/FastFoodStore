@@ -26,7 +26,14 @@ class MealBoxItemsTable extends Component {
   ];
 
   render() {
-    const { MealBoxItems, onSort, sortColumn, onSelect, selected, onView } = this.props;
+    const {
+      MealBoxItems,
+      onSort,
+      sortColumn,
+      onSelect,
+      selected,
+      onView
+    } = this.props;
 
     return (
       <Table

@@ -40,7 +40,8 @@ class ChangesListView extends Component {
     this.setState({ changes });
 
     const { data: response } = await deleteChange(id);
-    if (response.status >= 400 && response.status < 500) this.setState({ changes: originalChanges });
+    if (response.status >= 400 && response.status < 500)
+      this.setState({ changes: originalChanges });
   };
 
   handlePageChange = page => {
@@ -79,7 +80,14 @@ class ChangesListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, sortColumn, changes: allChanges, searchName, searchCategory } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      changes: allChanges,
+      searchName,
+      searchCategory
+    } = this.state;
 
     const filtered = allChanges;
     if (searchName !== null || searchCategory !== null) this.filteredResult();
@@ -111,8 +119,14 @@ class ChangesListView extends Component {
             <Row>
               <Col className="float-left">
                 <FontAwesomeIcon icon={faListAlt} />
-                <span className="ml-2" style={{ fontSize: "1rem", fontWeight: 600 }}>
-                  <TranslateText defaultText="Changes" resourceId="lbl_Changes" />
+                <span
+                  className="ml-2"
+                  style={{ fontSize: "1rem", fontWeight: 600 }}
+                >
+                  <TranslateText
+                    defaultText="Changes"
+                    resourceId="lbl_Changes"
+                  />
                   <br />
                   {totalCount}
                   <TranslateText defaultText="found" resourceId="lbl_found" />

@@ -91,12 +91,12 @@ const Example = props => {
                 />
               </Col>
               <Col>
-                <button
+                <Button
                   className="btn btn-danger"
                   onClick={() => props.onEdit(props.item.Id)}
                 >
                   Edit
-                </button>
+                </Button>
               </Col>
               <Col>
                 <Button onClick={() => props.Delete(props.item.Id)}>

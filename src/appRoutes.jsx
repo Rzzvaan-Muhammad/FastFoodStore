@@ -16,9 +16,15 @@ const MealBoxItems = lazy(() => import("./components/mealBoxItem_list"));
 const MealBoxItemForm = lazy(() => import("./forms/mealBoxItemForm"));
 const MealItems = lazy(() => import("./components/mealItem_list"));
 const MealItemForm = lazy(() => import("./forms/mealItemForm"));
-const MealItemSensitivities = lazy(() => import("./components/mealItemSensitivity_list"));
-const MealItemSensitivityForm = lazy(() => import("./forms/mealItemSensitivityForm"));
-const SensitiveContents = lazy(() => import("./components/sensitiveContent_list"));
+const MealItemSensitivities = lazy(() =>
+  import("./components/mealItemSensitivity_list")
+);
+const MealItemSensitivityForm = lazy(() =>
+  import("./forms/mealItemSensitivityForm")
+);
+const SensitiveContents = lazy(() =>
+  import("./components/sensitiveContent_list")
+);
 const SensitiveContentForm = lazy(() => import("./forms/sensitiveContentForm"));
 const SpiceLevels = lazy(() => import("./components/spiceLevel_list"));
 const SpiceLevelForm = lazy(() => import("./forms/spiceLevelForm"));
@@ -49,7 +55,10 @@ class AppRoutes extends React.Component {
           <Suspense fallback={<Loading />}>
             <Switch>
               <Route path="/changes_list/:id" component={ChangeHistory} />
-              <Route path="/itemCategory_list/:id" component={ItemCategoryForm} />
+              <Route
+                path="/itemCategory_list/:id"
+                component={ItemCategoryForm}
+              />
               <Route path="/itemCategory_list" component={ItemCategories} />
               <Route path="/periPeriBox_list" component={periPeriBox} />
               <Route path="/mealBox_list/:id" component={MealBoxForm} />
@@ -58,10 +67,22 @@ class AppRoutes extends React.Component {
               <Route path="/mealBoxItem_list" component={MealBoxItems} />
               <Route path="/mealItem_list/:id" component={MealItemForm} />
               <Route path="/mealItem_list" component={MealItems} />
-              <Route path="/mealItemSensitivity_list/:id" component={MealItemSensitivityForm} />
-              <Route path="/mealItemSensitivity_list" component={MealItemSensitivities} />
-              <Route path="/sensitiveContent_list/:id" component={SensitiveContentForm} />
-              <Route path="/sensitiveContent_list" component={SensitiveContents} />
+              <Route
+                path="/mealItemSensitivity_list/:id"
+                component={MealItemSensitivityForm}
+              />
+              <Route
+                path="/mealItemSensitivity_list"
+                component={MealItemSensitivities}
+              />
+              <Route
+                path="/sensitiveContent_list/:id"
+                component={SensitiveContentForm}
+              />
+              <Route
+                path="/sensitiveContent_list"
+                component={SensitiveContents}
+              />
               <Route path="/spiceLevel_list/:id" component={SpiceLevelForm} />
               <Route path="/OrderForm" component={OrderForm} />
 

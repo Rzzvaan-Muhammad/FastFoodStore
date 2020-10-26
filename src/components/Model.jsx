@@ -22,7 +22,10 @@ const CustomeModal = props => {
               ))}
             </Row>
           </b> */}
-          <SensitivieContent MealBoxItems={props.MealBoxItems} ItemId={props.Id} />
+          <SensitivieContent
+            MealBoxItems={props.MealBoxItems}
+            ItemId={props.Id}
+          />
         </ModalBody>
         <ModalFooter>
           <Button color="secondary" onClick={toggle}>

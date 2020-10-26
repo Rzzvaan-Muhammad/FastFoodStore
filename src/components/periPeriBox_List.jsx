@@ -31,7 +31,7 @@ class MealBoxesListView extends Component {
       MealBoxItems: [],
       image: null,
       cartItems: 0,
-      sortColumn: { property: "Id", order: "asc" },
+      sortColumn: { property: "Id", order: "asc" }
     };
   }
 
@@ -40,7 +40,7 @@ class MealBoxesListView extends Component {
     // dispatch({ type: "ExpenseType" });
     const { data: response } = await getMealBoxes();
     this.setState({
-      MealBoxes: response.Result,
+      MealBoxes: response.Result
     });
   }
 
@@ -54,49 +54,50 @@ class MealBoxesListView extends Component {
 
     if (Allergens.length !== response.Result.length) {
       this.setState({
-        Allergens: response.Result,
+        Allergens: response.Result
       });
     }
     const MealBoxItemslist = await getMealBoxItems();
 
     if (MealBoxItems.length !== MealBoxItemslist.data.Result.length) {
       this.setState({
-        MealBoxItems: MealBoxItemslist.data.Result,
+        MealBoxItems: MealBoxItemslist.data.Result
       });
     }
   }
 
-  getFromCache = (id) => {
+  getFromCache = id => {
     const item = localStorage.getItem(id);
     return JSON.parse(item);
     // return item;
   };
 
-  handleDelete = async (id) => {
+  handleDelete = async id => {
     const originalMealBoxes = this.state.MealBoxes;
-    const MealBoxes = this.state.MealBoxes.filter((c) => c.Id !== id);
+    const MealBoxes = this.state.MealBoxes.filter(c => c.Id !== id);
     this.setState({ MealBoxes });
     const { data: response } = await deleteMealBox(id);
-    if (response.status >= 400 && response.status < 500) this.setState({ MealBoxes: originalMealBoxes });
+    if (response.status >= 400 && response.status < 500)
+      this.setState({ MealBoxes: originalMealBoxes });
   };
 
-  handleTrackChanges = (id) => {
+  handleTrackChanges = id => {
     this.props.history.push(`changes_list/mealBox/${id}`);
   };
 
-  handlePageChange = (page) => {
+  handlePageChange = page => {
     this.setState({ currentPage: page });
   };
 
-  handleSort = (sortColumn) => {
+  handleSort = sortColumn => {
     this.setState({ sortColumn });
   };
 
-  handleSelect = (id) => {
+  handleSelect = id => {
     this.setState({ selected: id });
   };
 
-  handleEdit = (id) => {
+  handleEdit = id => {
     this.props.history.push(`MealBox_list/${id}`);
     // this.props.history.push("MealBox_list/new");
   };
@@ -105,13 +106,13 @@ class MealBoxesListView extends Component {
     this.props.history.push("MealBox_list/new");
   };
 
-  handleView = (id) => {
+  handleView = id => {
     this.props.history.push(`MealBox_list/view${id}&`);
   };
 
-  handleSearch = (value) => {
+  handleSearch = value => {
     const str = value.toLowerCase().split(" ");
-    const keys = str.map((e) => e.split(":"));
+    const keys = str.map(e => e.split(":"));
   };
 
   getPagedData = () => {
@@ -123,15 +124,20 @@ class MealBoxesListView extends Component {
       mealBoxTitle,
       description,
       mealBoxPrice,
-      totalCalories,
+      totalCalories
     } = this.state;
 
     const filtered = allMealBoxes;
 
-    if (mealBoxTitle || description || mealBoxPrice || totalCalories) filtered = this.filteredResult();
+    if (mealBoxTitle || description || mealBoxPrice || totalCalories)
+      filtered = this.filteredResult();
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const MealBoxes = paginate(sorted, currentPage, pageSize);
 
@@ -168,11 +174,8 @@ class MealBoxesListView extends Component {
               </CardHeader>
               <CardBody>
                 <Row md="3">
-                  {MealBoxes.map((item) => (
-                    <Col
-                      key={item.Id}
-                      style={{ width: "300%", height: "10%" }}
-                    >
+                  {MealBoxes.map(item => (
+                    <Col key={item.Id} style={{ width: "300%", height: "10%" }}>
                       <FastFoodStore
                         item={item}
                         lavel={25}

@@ -25,7 +25,8 @@ class ProductsTable extends Component {
     {
       property: "TransactionDate",
       label: "Transaction Date",
-      content: change => change.TransactionDate && moment(change.TransactionDate).fromNow()
+      content: change =>
+        change.TransactionDate && moment(change.TransactionDate).fromNow()
     },
     {
       property: "Version",
@@ -34,7 +35,14 @@ class ProductsTable extends Component {
   ];
 
   render() {
-    const { changes, onSort, sortColumn, onSelect, selected, onView } = this.props;
+    const {
+      changes,
+      onSort,
+      sortColumn,
+      onSelect,
+      selected,
+      onView
+    } = this.props;
     console.log(changes);
 
     return (

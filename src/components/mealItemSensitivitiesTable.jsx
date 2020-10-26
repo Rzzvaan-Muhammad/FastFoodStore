@@ -1,7 +1,10 @@
 // code generated @DevUp using PlatformBuilder, 04/01/2020 14:16:20
 import React, { Component } from "react";
 import Table from "../common/table";
-import { getSensitiveContentsName, getMealItemsName } from "../services/listServices";
+import {
+  getSensitiveContentsName,
+  getMealItemsName
+} from "../services/listServices";
 
 class MealItemSensitivitiesTable extends Component {
   columns = [
@@ -12,17 +15,26 @@ class MealItemSensitivitiesTable extends Component {
     {
       property: "MealItemIdFK",
       label: "Meal Item",
-      content: SensitiveContent => getMealItemsName(SensitiveContent.MealItemIdFK)
+      content: SensitiveContent =>
+        getMealItemsName(SensitiveContent.MealItemIdFK)
     },
     {
       property: "SensitiveContentIdFK",
       label: "Sensitive Content",
-      content: SensitiveContent => getSensitiveContentsName(SensitiveContent.SensitiveContentIdFK)
+      content: SensitiveContent =>
+        getSensitiveContentsName(SensitiveContent.SensitiveContentIdFK)
     }
   ];
 
   render() {
-    const { MealItemSensitivities, onSort, sortColumn, onSelect, selected, onView } = this.props;
+    const {
+      MealItemSensitivities,
+      onSort,
+      sortColumn,
+      onSelect,
+      selected,
+      onView
+    } = this.props;
 
     return (
       <Table

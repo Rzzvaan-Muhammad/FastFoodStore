@@ -3,7 +3,10 @@ import React, { Component } from "react";
 import { Card, CardBody } from "reactstrap";
 import _ from "lodash";
 import paginate from "../utils/paginate";
-import { deleteMealItemSensitivity, getMealItemSensitivities } from "../services/mealItemSensitivityServices";
+import {
+  deleteMealItemSensitivity,
+  getMealItemSensitivities
+} from "../services/mealItemSensitivityServices";
 import MealItemSensitivitiesTable from "./mealItemSensitivitiesTable";
 
 class MealItemSensitivitiesListView extends Component {
@@ -22,14 +25,21 @@ class MealItemSensitivitiesListView extends Component {
 
   async componentDidMount() {
     const { data: response } = await getMealItemSensitivities();
-    const list = response.Result.filter(x => x.MealItemIdFK === this.props.ItemId);
-    console.log("TCL: MealItemSensitivitiesListView -> componentDidMount -> list", list);
+    const list = response.Result.filter(
+      x => x.MealItemIdFK === this.props.ItemId
+    );
+    console.log(
+      "TCL: MealItemSensitivitiesListView -> componentDidMount -> list",
+      list
+    );
     this.setState({ MealItemSensitivities: list });
   }
 
   handleDelete = async id => {
     const originalMealItemSensitivities = this.state.MealItemSensitivities;
-    const MealItemSensitivities = this.state.MealItemSensitivities.filter(c => c.Id !== id);
+    const MealItemSensitivities = this.state.MealItemSensitivities.filter(
+      c => c.Id !== id
+    );
     this.setState({ MealItemSensitivities });
     const { data: response } = await deleteMealItemSensitivity(id);
     if (response.status >= 400 && response.status < 500)
@@ -73,13 +83,22 @@ class MealItemSensitivitiesListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, sortColumn, MealItemSensitivities: allMealItemSensitivities } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      MealItemSensitivities: allMealItemSensitivities
+    } = this.state;
 
     const filtered = allMealItemSensitivities;
 
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const MealItemSensitivities = paginate(sorted, currentPage, pageSize);
 

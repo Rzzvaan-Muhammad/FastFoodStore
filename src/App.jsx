@@ -13,7 +13,6 @@ const LoginForm = lazy(() => import("./components/loginForm"));
 const AppRoutes = lazy(() => import("./appRoutes"));
 
 const store = ConfigureStore();
-console.log("store", store);
 class App extends React.Component {
   constructor(props) {
     super(props);

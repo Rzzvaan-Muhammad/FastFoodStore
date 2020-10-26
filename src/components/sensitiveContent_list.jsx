@@ -9,7 +9,10 @@ import ButtonPanel from "./buttonPanel";
 import Pagination from "../common/pagination";
 import paginate from "../utils/paginate";
 import SearchForm from "../forms/searchForm";
-import { deleteSensitiveContent, getSensitiveContents } from "../services/sensitiveContentServices";
+import {
+  deleteSensitiveContent,
+  getSensitiveContents
+} from "../services/sensitiveContentServices";
 import SensitiveContentsTable from "./sensitiveContentsTable";
 import TranslateText from "../common/translateText";
 import { AccessContext } from "../contexts/accessContext";
@@ -40,7 +43,9 @@ class SensitiveContentsListView extends Component {
 
   handleDelete = async id => {
     const originalSensitiveContents = this.state.SensitiveContents;
-    const SensitiveContents = this.state.SensitiveContents.filter(c => c.Id !== id);
+    const SensitiveContents = this.state.SensitiveContents.filter(
+      c => c.Id !== id
+    );
     this.setState({ SensitiveContents });
     const { data: response } = await deleteSensitiveContent(id);
     if (response.status >= 400 && response.status < 500)
@@ -84,13 +89,22 @@ class SensitiveContentsListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, sortColumn, SensitiveContents: allSensitiveContents } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      SensitiveContents: allSensitiveContents
+    } = this.state;
 
     const filtered = allSensitiveContents;
 
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const SensitiveContents = paginate(sorted, currentPage, pageSize);
 
@@ -112,14 +126,20 @@ class SensitiveContentsListView extends Component {
     return (
       <>
         <Card>
-          <CardHeader className="font-weight-bold" onDoubleClick={() => this.handleSelect(-1)}>
+          <CardHeader
+            className="font-weight-bold"
+            onDoubleClick={() => this.handleSelect(-1)}
+          >
             <Row>
               <Col className="float-left">
                 {/* <FontAwesomeIcon icon={faListAlt} /> */}
                 <span
                 //  className="ml-2" style={{ fontSize: "1rem", fontWeight: 600 }}
                 >
-                  <TranslateText defaultText="Sensitive Contents" resourceId="lbl_SensitiveContents" />
+                  <TranslateText
+                    defaultText="Sensitive Contents"
+                    resourceId="lbl_SensitiveContents"
+                  />
                   <br />
                   {totalCount}
                   <TranslateText defaultText="found" resourceId="lbl_found" />

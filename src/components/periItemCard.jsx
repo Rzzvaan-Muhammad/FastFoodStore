@@ -10,11 +10,11 @@ import {
 } from "reactstrap";
 import { ProgressBar } from "../common/Progress";
 import Model from "./Model";
-import { getDUAttachments } from "../services/DUTaskAttachmentServices";
+// import { getDUAttachments } from "../services/DUTaskAttachmentServices";
 // import CaratModel from "./CaratModel";
 import CaratModel from "./CartReduxModel";
 
-import { deleteMealBox, getMealBox } from "../services/mealBoxServices";
+// import { deleteMealBox, getMealBox } from "../services/mealBoxServices";
 
 const Example = props => {
   const [src, setSrc] = useState("");
@@ -58,70 +58,54 @@ const Example = props => {
               <Row>
                 <Col>
                   <small>
-                    <b>
-                      <>{props.item.Description}</>
-                    </b>
+                    <b>{props.item.Description}</b>
                   </small>
 
                   <br />
                   <small>
-                    <b>
-                      <> Total Calories: {props.item.TotalCalories}</>
-                    </b>
+                    <b>Total Calories: {props.item.TotalCalories}</b>
                   </small>
                   <br />
                   <small>
-                    <b>
-                      <> Person Count: {props.item.PersonCount}</>
-                    </b>
+                    <b>Person Count: {props.item.PersonCount}</b>
                   </small>
                   <br />
                   <small>
-                    <b>
-                      <> Is Kid Meal: {props.item.IsKidMeal ? "Yes" : "No"}</>
-                    </b>
+                    <b>Is Kid Meal: {props.item.IsKidMeal ? "Yes" : "No"}</b>
                   </small>
                   <br />
                   <small>
-                    <b>
-                      <> Meal Box Offer: {props.item.MealBoxOffer}</>
-                    </b>
+                    <b>Meal Box Offer: {props.item.MealBoxOffer}</b>
                   </small>
 
                   <br />
                 </Col>
               </Row>
-              <>
-                <small>
-                  <i>Protien</i>
-                </small>
-                <ProgressBar value={props.item.Protien * props.lavel} />
-              </>
-              <>
-                <small>
-                  <i> Fat</i>
-                </small>
-                <ProgressBar value={props.item.Fat * props.lavel} />
-              </>
-              <>
-                <small>
-                  <i> Fiber</i>
-                </small>
-                <ProgressBar value={props.item.Fiber * props.lavel} />
-              </>
-              <>
-                <small>
-                  <i> SpiceLevel </i>
-                </small>
-                <ProgressBar value={props.item.SpiceLevel * props.lavel} />
-              </>
+
+              <small>
+                <i>Protien</i>
+              </small>
+              <ProgressBar value={props.item.Protien * props.lavel} />
+
+              <small>
+                <i> Fat</i>
+              </small>
+              <ProgressBar value={props.item.Fat * props.lavel} />
+
+              <small>
+                <i> Fiber</i>
+              </small>
+              <ProgressBar value={props.item.Fiber * props.lavel} />
+
+              <small>
+                <i> SpiceLevel </i>
+              </small>
+              <ProgressBar value={props.item.SpiceLevel * props.lavel} />
             </CardText>
             <div className="c-product-card__footer">
               <Row>
                 <Col md="4" className="float-left">
-                  <>
-                    <b> £ {props.item.MealBoxPrice}</b>
-                  </>
+                  <b> £ {props.item.MealBoxPrice}</b>
                 </Col>
                 <Col md="4" className="float-right">
                   <CaratModel

@@ -8,7 +8,10 @@ import ButtonPanel from "./buttonPanel";
 import Pagination from "../common/pagination";
 import paginate from "../utils/paginate";
 import SearchForm from "../forms/searchForm";
-import { deleteSpiceLevel, getSpiceLevels } from "../services/spiceLevelServices";
+import {
+  deleteSpiceLevel,
+  getSpiceLevels
+} from "../services/spiceLevelServices";
 import SpiceLevelsTable from "./spiceLevelsTable";
 import TranslateText from "../common/translateText";
 import { AccessContext } from "../contexts/accessContext";
@@ -42,7 +45,8 @@ class SpiceLevelsListView extends Component {
     const SpiceLevels = this.state.SpiceLevels.filter(c => c.Id !== id);
     this.setState({ SpiceLevels });
     const { data: response } = await deleteSpiceLevel(id);
-    if (response.status >= 400 && response.status < 500) this.setState({ SpiceLevels: originalSpiceLevels });
+    if (response.status >= 400 && response.status < 500)
+      this.setState({ SpiceLevels: originalSpiceLevels });
   };
 
   handleTrackChanges = id => {
@@ -82,13 +86,22 @@ class SpiceLevelsListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, sortColumn, SpiceLevels: allSpiceLevels } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      sortColumn,
+      SpiceLevels: allSpiceLevels
+    } = this.state;
 
     const filtered = allSpiceLevels;
 
     // if (searchName || searchCategory) filtered = this.filteredResult();
 
-    const sorted = _.orderBy(filtered, [sortColumn.property], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filtered,
+      [sortColumn.property],
+      [sortColumn.order]
+    );
 
     const SpiceLevels = paginate(sorted, currentPage, pageSize);
 
@@ -114,8 +127,14 @@ class SpiceLevelsListView extends Component {
             <Row>
               <Col className="float-left">
                 <FontAwesomeIcon icon={faListAlt} />
-                <span className="ml-2" style={{ fontSize: "1rem", fontWeight: 600 }}>
-                  <TranslateText defaultText="SpiceLevels" resourceId="lbl_SpiceLevels" />
+                <span
+                  className="ml-2"
+                  style={{ fontSize: "1rem", fontWeight: 600 }}
+                >
+                  <TranslateText
+                    defaultText="SpiceLevels"
+                    resourceId="lbl_SpiceLevels"
+                  />
                   <br />
                   {totalCount}
                   <TranslateText defaultText="found" resourceId="lbl_found" />
