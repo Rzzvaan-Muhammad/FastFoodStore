@@ -12,9 +12,9 @@ import { ProgressBar } from "../common/Progress";
 import Model from "./Model";
 // import { getDUAttachments } from "../services/DUTaskAttachmentServices";
 // import CaratModel from "./CaratModel";
-import CaratModel from "./CartReduxModel";
 
 // import { deleteMealBox, getMealBox } from "../services/mealBoxServices";
+import CaratModel from './CartReduxModel';
 
 const Example = props => {
   const [src, setSrc] = useState("");
@@ -55,7 +55,13 @@ const Example = props => {
 
           <div className="form-group">
             <CardText>
-              <Row>
+              <Row
+                style={{
+                  padding: "2%",
+                  textJustify: "auto",
+                  fontFamily: "cursive"
+                }}
+              >
                 <Col>
                   <small>
                     <b>{props.item.Description}</b>
@@ -66,6 +72,8 @@ const Example = props => {
                     <b>Total Calories: {props.item.TotalCalories}</b>
                   </small>
                   <br />
+                </Col>
+                <Col>
                   <small>
                     <b>Person Count: {props.item.PersonCount}</b>
                   </small>
@@ -81,33 +89,43 @@ const Example = props => {
                   <br />
                 </Col>
               </Row>
+              <Row
+                style={{
+                  padding: "2%",
+                  textJustify: "auto",
+                  fontFamily: "cursive"
+                }}
+              >
+                <Col>
+                  <small>
+                    <i>Protien</i>
+                  </small>
+                  <ProgressBar value={props.item.Protien * props.lavel} />
 
-              <small>
-                <i>Protien</i>
-              </small>
-              <ProgressBar value={props.item.Protien * props.lavel} />
+                  <small>
+                    <i> Fat</i>
+                  </small>
+                  <ProgressBar value={props.item.Fat * props.lavel} />
+                </Col>
+                <Col>
+                  <small>
+                    <i> Fiber</i>
+                  </small>
+                  <ProgressBar value={props.item.Fiber * props.lavel} />
 
-              <small>
-                <i> Fat</i>
-              </small>
-              <ProgressBar value={props.item.Fat * props.lavel} />
-
-              <small>
-                <i> Fiber</i>
-              </small>
-              <ProgressBar value={props.item.Fiber * props.lavel} />
-
-              <small>
-                <i> SpiceLevel </i>
-              </small>
-              <ProgressBar value={props.item.SpiceLevel * props.lavel} />
+                  <small>
+                    <i> SpiceLevel </i>
+                  </small>
+                  <ProgressBar value={props.item.SpiceLevel * props.lavel} />
+                </Col>
+              </Row>
             </CardText>
             <div className="c-product-card__footer">
               <Row>
-                <Col md="4" className="float-left">
-                  <b> £ {props.item.MealBoxPrice}</b>
+                <Col md="3" className="float-left">
+                  <b>{props.item.MealBoxPrice} pkr</b>
                 </Col>
-                <Col md="4" className="float-right">
+                <Col md="5" className="float-right">
                   <CaratModel
                     buttonLabel="Add To Cart"
                     Id={props.item.Id}
@@ -136,5 +154,4 @@ const Example = props => {
     // </div>
   );
 };
-
 export default Example;

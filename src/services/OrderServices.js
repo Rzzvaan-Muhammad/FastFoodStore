@@ -19,7 +19,13 @@ export function saveOrder(Order) {
   return http.post(`${endpoint}/Create`, Order);
 }
 
-export function filterOrder(Ordertitle, description, Orderprice, totalcalories, iskidmeal) {
+export function filterOrder(
+  Ordertitle,
+  description,
+  Orderprice,
+  totalcalories,
+  iskidmeal
+) {
   let filterUrl = "";
 
   if (Ordertitle !== "" && Ordertitle !== null) {

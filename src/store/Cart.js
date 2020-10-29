@@ -47,7 +47,7 @@ const {
   bugsRequestFailed
 } = slice.actions;
 export default slice.reducer;
-const url = "/MealBoxs";
+const url = "";
 export const loadBugs = () => (dispatch, getState) => {
   const { lastFetch } = getState().entites.bugs;
   const diffInMinutes = moment().diff(moment(lastFetch), "minutes");
@@ -56,7 +56,7 @@ export const loadBugs = () => (dispatch, getState) => {
   }
   dispatch(
     actions.apiCallBegan({
-      url,
+      url: `${url}/Orders`,
       onStart: bugsRequested.type,
       onSuccess: bugsReceived.type,
       onError: bugsRequestFailed.type
@@ -65,7 +65,7 @@ export const loadBugs = () => (dispatch, getState) => {
 };
 export const addBug = bug =>
   actions.apiCallBegan({
-    url,
+    url: `${url}/Create`,
     method: "post",
     data: bug,
     onSuccess: bugAdded.type

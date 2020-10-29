@@ -1,5 +1,15 @@
 import React, { Component } from "react";
-import { Card, Button, CardTitle, CardText, CardColumns, Row, Col, ButtonToolbar, ButtonGroup } from "reactstrap";
+import {
+  Card,
+  Button,
+  CardTitle,
+  CardText,
+  CardColumns,
+  Row,
+  Col,
+  ButtonToolbar,
+  ButtonGroup
+} from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { deleteMealBox, getMealBox } from "../services/mealBoxServices";
@@ -9,7 +19,7 @@ class CartBoxList extends Component {
     super();
     this.state = {
       Data: [],
-      count: 1,
+      count: 1
     };
   }
 
@@ -23,7 +33,7 @@ class CartBoxList extends Component {
     return obj;
   };
 
-  getFromCache = (key) => {
+  getFromCache = key => {
     const item = localStorage.getItem(key);
     return JSON.parse(item);
     // return item;
@@ -48,17 +58,18 @@ class CartBoxList extends Component {
     return obj;
   };
 
-  getFromCache = (key) => {
+  getFromCache = key => {
     const item = localStorage.getItem(key);
     return JSON.parse(item);
     // return item;
   };
 
-  handlePrice = (id) => {
+  handlePrice = id => {
     // const count = this.state.count;
     const cacheArray = this.getFromCache("__cartdata__");
-    const arrayIndex = cacheArray.findindex((x) => (x.Id = id));
-    cacheArray[arrayIndex].MealBoxPrice = this.state.count * cacheArray[arrayIndex].MealBoxPrice;
+    const arrayIndex = cacheArray.findindex(x => (x.Id = id));
+    cacheArray[arrayIndex].MealBoxPrice =
+      this.state.count * cacheArray[arrayIndex].MealBoxPrice;
     this.setIntoCache("__cartdata__", [cacheArray]);
     this.setState({ Data: cacheArray });
 
@@ -67,10 +78,10 @@ class CartBoxList extends Component {
     // return obj;
   };
 
-  deleteBox = (id) => {
+  deleteBox = id => {
     console.log("CartBoxList -> id", id);
     const Data = [...this.state.Data];
-    const updateData = Data.filter((x) => x.Id !== id);
+    const updateData = Data.filter(x => x.Id !== id);
     this.setState({ Data: updateData });
     this.setIntoCache("__cartdata__", updateData);
 
@@ -80,7 +91,7 @@ class CartBoxList extends Component {
   render() {
     return (
       <>
-        {this.state.Data.map((item) => (
+        {this.state.Data.map(item => (
           <Row>
             <Col key={item.Id}>
               <CardColumns>
@@ -113,8 +124,13 @@ class CartBoxList extends Component {
                             >
                               <b>-</b>
                             </Button>
-                            <div className="btn btn-outline-black disabled">{this.state.count}</div>
-                            <Button className="btn btn-success btn-outline-danger" onClick={() => this.increaseCount()}>
+                            <div className="btn btn-outline-black disabled">
+                              {this.state.count}
+                            </div>
+                            <Button
+                              className="btn btn-success btn-outline-danger"
+                              onClick={() => this.increaseCount()}
+                            >
                               <b>+</b>
                             </Button>
                           </ButtonGroup>
@@ -126,7 +142,10 @@ class CartBoxList extends Component {
               </CardColumns>
             </Col>
             <Col md="2">
-              <Button className="btn btn-success" onClick={() => this.deleteBox(item.Id)}>
+              <Button
+                className="btn btn-success"
+                onClick={() => this.deleteBox(item.Id)}
+              >
                 {/* Delete */}
                 <FontAwesomeIcon icon={faTrash} />
               </Button>

@@ -26,6 +26,11 @@ code {
   border: 1px solid rgba(236, 221, 221, 0.918);
   /* background: rgb(133, 133, 133); */
 }
+.Carrersform {
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
 #input-file-now-custom-2 {
   /* border: 2px dashed #bbb; */
   border: 2px dashed #ccc;

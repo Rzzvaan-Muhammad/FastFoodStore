@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getMealBox } from "../services/mealBoxServices";
-import { loadBugs } from "../store/Cart";
+import { loadBugs, addBug } from "../store/Cart";
 
 const CaratModel = props => {
   const { buttonLabel, className } = props;
@@ -27,13 +27,19 @@ const CaratModel = props => {
 
   useEffect(() => {
     dispatch(loadBugs());
-  }, [bugs, dispatch]);
+  }, [bugs, dispatch, props.Id]);
   const addBox = async () => {
-    // const objList = await getMealBox(props.Id);
+    const objList = await getMealBox(props.Id);
+    console.log("addBox -> objList", objList.data.Result);
+    const obj = { ...objList.data.Result };
+    obj.Id = null;
+    console.log("addBox -> obj", obj);
+    dispatch(addBug(obj));
   };
   const addToCart = () => {
     // add item to the reduxcart
     toggle();
+    addBox();
   };
   return (
     <div>

@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import Loading from "./common/loading";
 import ErrorBoundary from "./common/errorBoundary";
 import ConfigureStore from "./store/configureStore";
-
 const NotFound = lazy(() => import("./common/notFound"));
 const LoginForm = lazy(() => import("./components/loginForm"));
 

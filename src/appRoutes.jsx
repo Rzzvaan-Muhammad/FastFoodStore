@@ -11,11 +11,19 @@ const ItemCategories = lazy(() => import("./components/ItemCategory_list"));
 const periPeriBox = lazy(() => import("./components/periPeriBox_List"));
 const ItemCategoryForm = lazy(() => import("./forms/ItemCategoryForm"));
 const MealBoxes = lazy(() => import("./components/mealBox_list"));
+const Contects = lazy(() => import("./components/Contects"));
+
 const MealBoxForm = lazy(() => import("./forms/mealBoxForm"));
 const MealBoxItems = lazy(() => import("./components/mealBoxItem_list"));
 const MealBoxItemForm = lazy(() => import("./forms/mealBoxItemForm"));
+const CarrersForm = lazy(() => import("./forms/CarrersForm"));
+
 const MealItems = lazy(() => import("./components/mealItem_list"));
 const MealItemForm = lazy(() => import("./forms/mealItemForm"));
+const Cart = lazy(() => import("./components/cart"));
+const CartComponent = lazy(() => import("./components/CartComponent"));
+const privacyPolicy = lazy(() => import("./components/privacyPolicy"));
+
 const MealItemSensitivities = lazy(() =>
   import("./components/mealItemSensitivity_list")
 );
@@ -61,6 +69,14 @@ class AppRoutes extends React.Component {
               />
               <Route path="/itemCategory_list" component={ItemCategories} />
               <Route path="/periPeriBox_list" component={periPeriBox} />
+              <Route path="/cart" component={Cart} />
+              <Route path="/CartComponent" component={CartComponent} />
+              <Route path="/privacyPolicy" component={privacyPolicy} />
+              <Route path="/CarrersForm" component={CarrersForm} />
+              <Route path="/Contects" component={Contects} />
+
+
+
               <Route path="/mealBox_list/:id" component={MealBoxForm} />
               <Route path="/mealBox_list" component={MealBoxes} />
               <Route path="/mealBoxItem_list/:id" component={MealBoxItemForm} />

@@ -2,7 +2,7 @@
 import React, { Component, useContext } from "react";
 import { Card, CardBody, CardHeader, Row, Col } from "reactstrap";
 import _ from "lodash";
-import { CartContext } from "./CartContext";
+import CartNev from "./CartNavBar";
 import paginate from "../utils/paginate";
 import { deleteMealBox, getMealBoxes } from "../services/mealBoxServices";
 import TranslateText from "../common/translateText";
@@ -11,6 +11,7 @@ import { getMealBoxItems } from "../services/mealBoxItemServices";
 import { AccessContext } from "../contexts/accessContext";
 import FastFoodStore from "./periItemCard";
 import CartComponent from "./CartComponent";
+import Footer from "./footer";
 
 // const [cart, setCart] = useContext(CartContext);
 // const arrayLength = cart.reduce((acc, curr) => curr.Length, 0);
@@ -160,6 +161,7 @@ class MealBoxesListView extends Component {
       <>
         <div className="d-flex">
           <div className="container-fluid">
+            <CartNev />
             <Card className="px-2">
               <CardHeader
                 className="justify-content-between text-uppercase font-weight-bold"
@@ -192,6 +194,7 @@ class MealBoxesListView extends Component {
             </Card>
           </div>
         </div>
+        <Footer />
       </>
     );
   }

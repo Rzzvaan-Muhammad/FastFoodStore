@@ -28,29 +28,29 @@ class MealBoxForm extends Form {
       DeliveryAddressLine3: "",
       Country: "",
       Postcode: "",
-      DeliveryAddress: "",
+      DeliveryAddress: ""
     },
     MealBoxData: [],
     ItemOrderIdFKs: [],
     User: [
       { Id: 1, Name: "Sultan" },
       { Id: 2, Name: "Rizwan" },
-      { Id: 3, Name: "Zahoor" },
+      { Id: 3, Name: "Zahoor" }
     ],
     OrderStatus: [
       { Id: 1, Name: "Panding" },
-      { Id: 2, Name: "Placed" },
+      { Id: 2, Name: "Placed" }
     ],
     PaymentStatus: [
       { Id: 1, Name: "Due" },
-      { Id: 2, Name: "Charged" },
+      { Id: 2, Name: "Charged" }
     ],
     PaymentType: [
       { Id: 1, Name: "Online" },
-      { Id: 2, Name: "Cash" },
+      { Id: 2, Name: "Cash" }
     ],
     errors: {},
-    modal: false,
+    modal: false
   };
 
   schema = {
@@ -73,7 +73,7 @@ class MealBoxForm extends Form {
     DeliveryAddressLine3: Joi.string().allow(""),
     Country: Joi.string().allow(""),
     DeliveryInstructions: Joi.string().allow(""),
-    Postcode: Joi.string().allow(""),
+    Postcode: Joi.string().allow("")
     // DeliveryAddresss: Joi.string().allow("")
   };
 
@@ -81,7 +81,10 @@ class MealBoxForm extends Form {
     if (this.props.Id === null) return;
     const Imported = YesNoWordList();
     // const result = await getOrderes();
-    console.log("MealBoxForm -> componentDidMount -> this.props.Id", this.props.Id);
+    console.log(
+      "MealBoxForm -> componentDidMount -> this.props.Id",
+      this.props.Id
+    );
     const list = await await getOrderes();
     // if (list === null) {
     // } else {
@@ -90,18 +93,18 @@ class MealBoxForm extends Form {
     this.setState({
       Imported,
       data: this.mapToViewModel(list.data.Result),
-      MealBoxData: list.data.Result,
+      MealBoxData: list.data.Result
     });
     // }
   }
 
   toggle = () => {
     this.setState({
-      modal: !this.state.modal,
+      modal: !this.state.modal
     });
   };
 
-  mapToViewModel = (x) => {
+  mapToViewModel = x => {
     return {
       UserIdFK: x.UserIdFK,
       OrderName: x.OrderName,
@@ -121,7 +124,7 @@ class MealBoxForm extends Form {
       Country: x.Country,
       Postcode: x.Postcode,
       DeliveryInstructions: x.DeliveryInstructions,
-      DeliveryAddress: x.DeliveryAddress,
+      DeliveryAddress: x.DeliveryAddress
     };
   };
 
@@ -150,16 +153,31 @@ class MealBoxForm extends Form {
               {this.renderInput("OrderTotalPrice", "Order Total Price")}
               {this.renderInput("TaxAmount", "Tax Amount")}
               {this.renderInput("TotalDue", "Total Due")}
-              {this.renderSelect("OrderStatus", "Order Status", this.state.OrderStatus)}
-              {this.renderSelect("PaymentStatus", "Payment Status", this.state.PaymentStatus)}
+              {this.renderSelect(
+                "OrderStatus",
+                "Order Status",
+                this.state.OrderStatus
+              )}
+              {this.renderSelect(
+                "PaymentStatus",
+                "Payment Status",
+                this.state.PaymentStatus
+              )}
             </Col>
             <Col>
               {this.renderInput("EmailAddress", "Email Address")}
               {this.renderDatePicker("OrderDate", "Order Date", data.OrderDate)}
               {this.renderInput("Comment", "Comment")}
               {this.renderInput("ContactNumber", "Contact Number")}
-              {this.renderSelect("PaymentType", "Payment Type", this.state.PaymentType)}
-              {this.renderInput("DeliveryInstructions", "Delivery Instructions")}
+              {this.renderSelect(
+                "PaymentType",
+                "Payment Type",
+                this.state.PaymentType
+              )}
+              {this.renderInput(
+                "DeliveryInstructions",
+                "Delivery Instructions"
+              )}
             </Col>
             <Col>
               {this.renderInput("DeliveryAddressLine1", "Adress Line 1")}

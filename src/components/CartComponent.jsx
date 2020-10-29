@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faRetweet, faShoppingBag, faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
 import OrderForm from "../forms/OrderForm";
-import Cart from "./Cart";
+import Cart from "./cart";
 
 const CartComponent = (props) => {
   const { buttonLabel, className, cartItems } = props;
