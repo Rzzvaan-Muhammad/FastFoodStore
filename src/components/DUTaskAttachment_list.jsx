@@ -4,16 +4,16 @@ import { Card, CardBody, CardHeader, Row, Col } from "reactstrap";
 import _ from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListAlt } from "@fortawesome/free-solid-svg-icons";
-import ButtonPanel from "../buttonPanel";
-import Pagination from "../../common/pagination";
-import paginate from "../../utils/paginate";
+import ButtonPanel from "../components/buttonPanel";
+import Pagination from "../common/pagination";
+import paginate from "../utils/paginate";
 import SearchForm from "../forms/searchForm";
 import {
   deleteDUAttachment,
   getDUAttachments
-} from "../../services/DUTaskAttachmentServices";
-import DUTaskAttachmentTable from "../tables/DUTaskAttachmentTable";
-import TranslateText from "../../common/translateText";
+} from "../services/DUTaskAttachmentServices";
+import DUTaskAttachmentTable from "../components/DUTaskAttachmentTable";
+import TranslateText from "../common/translateText";
 
 class DUTaskAttachmentsListView extends Component {
   constructor(props) {

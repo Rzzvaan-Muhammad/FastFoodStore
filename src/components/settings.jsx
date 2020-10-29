@@ -5,7 +5,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import Languages from "../common/languages";
+// import Languages from "../common/languages";
 import TranslateText from "../common/translateText";
 
 const Settings = () => {
@@ -15,7 +15,7 @@ const Settings = () => {
         <TranslateText defaultText="Settings" resourceId="lbl_Settings" />
       </DropdownToggle>
       <DropdownMenu>
-        <Languages />
+        {/* <Languages /> */}
         <DropdownItem>
           <TranslateText defaultText="Profile" resourceId="lbl_Profile" />
         </DropdownItem>

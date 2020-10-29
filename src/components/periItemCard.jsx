@@ -8,49 +8,53 @@ import {
   Row,
   Col
 } from "reactstrap";
+import img1 from "../xs.jpg";
 import { ProgressBar } from "../common/Progress";
 import Model from "./Model";
-// import { getDUAttachments } from "../services/DUTaskAttachmentServices";
+import { getDUAttachments } from "../services/DUTaskAttachmentServices";
 // import CaratModel from "./CaratModel";
 
-// import { deleteMealBox, getMealBox } from "../services/mealBoxServices";
-import CaratModel from './CartReduxModel';
+import { deleteMealBox, getMealBox } from "../services/mealBoxServices";
+import CaratModel from "./CartReduxModel";
 
 const Example = props => {
   const [src, setSrc] = useState("");
 
-  // useEffect(() => {
-  //   const getFilePath = async id => {
-  //     const filter = {
-  //       RecordId: id,
-  //       AppName: "FastFoodStore",
-  //       ModuleName: "MealBox"
-  //     };
-  //     const { data: response } = await getDUAttachments(filter);
-  //     const Attachment = response.Result[0];
-  //     const ext = Attachment.FilePath.substr(
-  //       Attachment.FilePath.lastIndexOf("\\") + 1
-  //     );
-  //     const image = `http://86.14.11.234/FastFoodStoreWAPI/Attachments/${ext}${Attachment.FileType}`;
+  useEffect(() => {
+    const getFilePath = async id => {
+      const filter = {
+        RecordId: id,
+        AppName: "FastFoodStore",
+        ModuleName: "MealBox"
+      };
+      const { data: response } = await getDUAttachments(filter);
+      const Attachment = response.Result[0];
+      console.log("Attachment", Attachment);
+      const ext = Attachment.FilePath.substr(
+        Attachment.FilePath.lastIndexOf("\\") + 1
+      );
+      console.log("ext", ext);
+      const image =require(`C:/inetpub/wwwroot/FastFoodStoreWAPI/Attachments/${ext}${Attachment.FileType}`);
+      console.log("image", image);
 
-  //     setSrc(image);
-  //   };
-  //   const saveBox = () => {
-  //     // const objList = await getMealBox(this.props.Id);
-  //   };
-  //   getFilePath(props.item.Id);
-  // }, [props.item.Id]);
+      setSrc(image);
+    };
+    const saveBox = async () => {
+      const objList = await getMealBox(this.props.Id);
+    };
+    getFilePath(props.item.Id);
+  }, [props.item.Id]);
   // return image;
 
   return (
     <div className="container">
-      <Card className="border border-0">
-        <CardTitle>
+      <Card className="border border-0" style={{ backgroundColor: "" }}>
+        <CardTitle style={{ padding: "3%" }}>
           <b>
             <strong>{props.item.MealBoxTitle}</strong>
           </b>
         </CardTitle>
-        <CardBody>
+        <CardBody style={{ backgroundColor: "#e57373" }}>
           <CardImg top src={src} alt="Card image cap" />
 
           <div className="form-group">
@@ -100,23 +104,35 @@ const Example = props => {
                   <small>
                     <i>Protien</i>
                   </small>
-                  <ProgressBar value={props.item.Protien * props.lavel} />
+                  <ProgressBar
+                    value={props.item.Protien * props.lavel}
+                    color="#1976d2"
+                  />
 
                   <small>
                     <i> Fat</i>
                   </small>
-                  <ProgressBar value={props.item.Fat * props.lavel} />
+                  <ProgressBar
+                    value={props.item.Fat * props.lavel}
+                    color="#1de9b6"
+                  />
                 </Col>
                 <Col>
                   <small>
                     <i> Fiber</i>
                   </small>
-                  <ProgressBar value={props.item.Fiber * props.lavel} />
+                  <ProgressBar
+                    value={props.item.Fiber * props.lavel}
+                    color="#ffff00"
+                  />
 
                   <small>
                     <i> SpiceLevel </i>
                   </small>
-                  <ProgressBar value={props.item.SpiceLevel * props.lavel} />
+                  <ProgressBar
+                    value={props.item.SpiceLevel * props.lavel}
+                    color="red"
+                  />
                 </Col>
               </Row>
             </CardText>

@@ -2,13 +2,17 @@
 /* eslint-disable react/react-in-jsx-scope */
 import React from "react";
 
-export function ProgressBar({ value }) {
+export function ProgressBar({ value, color }) {
   return (
-    <div className="progress md-progress" style={{ height: "4px" }}>
+    <div className="progress" style={{ height: "4px" }}>
       <div
-        className="progress-bar"
+        className="determinate"
         role="progressbar"
-        style={{ width: `${value}%`, height: "4px" }}
+        style={{
+          width: `${value}%`,
+          height: "4px",
+          backgroundColor: `${color}`
+        }}
         aria-valuenow={value}
         aria-valuemin="0"
         aria-valuemax="100"

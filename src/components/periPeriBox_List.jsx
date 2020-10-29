@@ -162,19 +162,13 @@ class MealBoxesListView extends Component {
         <div className="d-flex">
           <div className="container-fluid">
             <CartNev />
-            <Card className="px-2">
+            <Card className="px-2" style={{ backgroundColor: "#ffebee" }}>
               <CardHeader
                 className="justify-content-between text-uppercase font-weight-bold"
                 style={{ fontSize: "1rem", fontWeight: 400 }}
                 onDoubleClick={() => this.handleSelect(-1)}
-              >
-                <Row>
-                  <Col xs="*">
-                    <CartComponent buttonLabel="Cart" />
-                  </Col>
-                </Row>
-              </CardHeader>
-              <CardBody>
+              />
+              <CardBody style={{ backgroundColor: "#ffcdd2" }}>
                 <Row md="3">
                   {MealBoxes.map(item => (
                     <Col key={item.Id} style={{ width: "300%", height: "10%" }}>

@@ -3,7 +3,7 @@ import Sidebar from "react-sidebar";
 import { Button, Row, Col } from "reactstrap";
 import { faBabyCarriage, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Cart from "./Cart";
+import Cart from "./cart";
 
 class NewSideBar extends React.Component {
   constructor(props) {

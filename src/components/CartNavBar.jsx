@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CartComponent from "./CartComponent";
 
 const Navbar = () => {
   return (
@@ -11,14 +12,9 @@ const Navbar = () => {
 
         <ul className="right">
           <li>
-            <Link to="/periPeriBox_List">Shop</Link>
-          </li>
-          <li>
-            <Link to="/cart">My cart</Link>
-          </li>
-          <li>
-            <Link to="/cart">
-              <i className="material-icons">shopping_cart</i>
+            <Link to="#">
+              {/* <i className="material-icons">shopping_cart</i> */}
+              <CartComponent buttonLabel="Cart" />
             </Link>
           </li>
         </ul>
