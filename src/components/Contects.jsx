@@ -5,7 +5,7 @@ function Contects(props) {
   return (
     <>
       <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper blue-grey darken-4">
           <a href="#!" className="brand-logo center">
             Contect
           </a>

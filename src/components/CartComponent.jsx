@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartPlus,
   faRetweet,
   faShoppingBag,
-  faAngleDoubleRight
 } from "@fortawesome/free-solid-svg-icons";
 import OrderForm from "../forms/OrderForm";
 import Cart from "./cart";
 
 const CartComponent = props => {
-  const { buttonLabel, className, cartItems } = props;
+  const { className, cartItems } = props;
   const [modal, setModal] = useState(false);
   const [nestedModal, setNestedModal] = useState(false);
   const [closeAll, setCloseAll] = useState(false);
@@ -38,11 +36,7 @@ const CartComponent = props => {
 
   return (
     <div>
-      <button
-        onClick={toggle}
-        className="btn btn-light"
-        style={{ backgroundColor: "#e57373" }}
-      >
+      <button onClick={toggle} className="btn btn-light">
         {/* {buttonLabel} */}
         {/* <b>{cartItems}</b> */}
         <FontAwesomeIcon icon={faCartPlus} color="success" />

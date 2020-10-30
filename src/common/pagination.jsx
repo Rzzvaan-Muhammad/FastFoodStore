@@ -8,22 +8,22 @@ const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
   const pages = _.range(1, pageCount + 1);
 
   return (
-    <nav style={{ margin: "auto" }}>
-      <ul className="pagination">
-        {pages.map(p => (
-          <li
-            key={p}
-            className={p === currentPage ? "page-item active" : "page-item"}
-            onClick={() => onPageChange(p)}
-            role="presentation"
-          >
-            <a className="page-link" href={`#${p}`}>
-              {p}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    // <nav style={{ margin: "auto" }}>
+    <ul className="pagination">
+      {pages.map(p => (
+        <li
+          key={p}
+          className={p === currentPage ? "page-item active" : "page-item"}
+          onClick={() => onPageChange(p)}
+          role="presentation"
+        >
+          <a className="page-link" href={`#${p}`}>
+            {p}
+          </a>
+        </li>
+      ))}
+    </ul>
+    // </nav>
   );
 };
 

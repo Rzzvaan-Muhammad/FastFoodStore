@@ -5,14 +5,14 @@ import _ from "lodash";
 import CartNev from "./CartNavBar";
 import paginate from "../utils/paginate";
 import { deleteMealBox, getMealBoxes } from "../services/mealBoxServices";
-import TranslateText from "../common/translateText";
 import { getSensitiveContents } from "../services/sensitiveContentServices";
 import { getMealBoxItems } from "../services/mealBoxItemServices";
 import { AccessContext } from "../contexts/accessContext";
 import FastFoodStore from "./periItemCard";
 import CartComponent from "./CartComponent";
 import Footer from "./footer";
-
+import Pagination from "../common/pagination";
+import Banner from "./banner";
 // const [cart, setCart] = useContext(CartContext);
 // const arrayLength = cart.reduce((acc, curr) => curr.Length, 0);
 
@@ -22,7 +22,7 @@ class MealBoxesListView extends Component {
 
     this.state = {
       MealBoxes: [],
-      pageSize: 10,
+      pageSize: 3,
       currentPage: 1,
       sidebarOpen: true,
 
@@ -154,21 +154,38 @@ class MealBoxesListView extends Component {
   }
 
   render() {
-    const { image, Allergens, MealBoxItems } = this.state;
+    const {
+      pageSize,
+      currentPage,
+      image,
+      Allergens,
+      MealBoxItems
+    } = this.state;
+
     const status = 25;
     const { totalCount, data: MealBoxes } = this.getPagedData();
     return (
       <>
         <div className="d-flex">
-          <div className="container-fluid">
+          <div className="container-fluid blue-grey lighten-3">
             <CartNev />
-            <Card className="px-2" style={{ backgroundColor: "#ffebee" }}>
+            <Banner />
+            <Pagination
+              itemsCount={totalCount || 0}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={this.handlePageChange}
+            />
+            <Card
+              className="px-2"
+              style={{ backgroundColor: "#cfd8dc", borderRadius: "15px" }}
+            >
               <CardHeader
                 className="justify-content-between text-uppercase font-weight-bold"
                 style={{ fontSize: "1rem", fontWeight: 400 }}
                 onDoubleClick={() => this.handleSelect(-1)}
               />
-              <CardBody style={{ backgroundColor: "#ffcdd2" }}>
+              <CardBody style={{ backgroundColor: "#b0bec5" }}>
                 <Row md="3">
                   {MealBoxes.map(item => (
                     <Col key={item.Id} style={{ width: "300%", height: "10%" }}>

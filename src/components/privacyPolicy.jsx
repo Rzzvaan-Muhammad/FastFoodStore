@@ -5,13 +5,16 @@ function privacyPolicy(props) {
   return (
     <>
       <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper blue-grey darken-4">
           <a href="#!" className="brand-logo center">
             Privacy Policy
           </a>
         </div>
       </nav>
-      <div className="container">
+      <div
+        className="container blue-grey darken-2"
+        style={{ padding: "5%", color: "white" }}
+      >
         <p>
           <h6>THIS PRIVACY POLICY APPLIES TO THE SITES:</h6>
           This Policy describes how we treat personal information both online
@@ -64,7 +67,7 @@ function privacyPolicy(props) {
         <h6>YOU HAVE CERTAIN CHOICES ABOUT HOW WE USE YOUR INFORMATION</h6>
         <p>
           You can opt out of receiving our marketing emails. To stop receiving
-          our promotional emails, send a request to comments@kfcpakistan.com or
+          our promotional emails, send a request to comments@FFcpakistan.com or
           follow the instructions in any promotional message you get from us. It
           may take about ten (10) days to process your request. Don't worry!
           Even if you opt out of getting marketing messages, we will still be

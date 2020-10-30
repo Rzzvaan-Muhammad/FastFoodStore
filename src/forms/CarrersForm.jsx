@@ -95,13 +95,16 @@ class CarrersForm extends Form {
     return (
       <>
         <nav>
-          <div className="nav-wrapper">
+          <div className="nav-wrapper blue-grey darken-4">
             <a href="#!" className="brand-logo center">
               Carrers Form
             </a>
           </div>
         </nav>
-        <div className="Carrersform">
+        <div
+          className="Carrersform blue-grey darken-2"
+          style={{ color: "white" }}
+        >
           <form onSubmit={this.handleSubmit}>
             <Row>
               <h5>PERSONNEL INFO</h5>

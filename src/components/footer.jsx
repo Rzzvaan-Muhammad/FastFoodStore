@@ -1,8 +1,9 @@
 import React from "react";
+
 const footer = () => {
   return (
     <>
-      <footer className="page-footer">
+      <footer className="page-footer" style={{ backgroundColor: "#263238" }}>
         <div className="container">
           <div className="row">
             <div className="col l6 s12">

@@ -4,7 +4,7 @@ import CartComponent from "./CartComponent";
 
 const Navbar = () => {
   return (
-    <nav className="nav-wrapper">
+    <nav className="nav-wrapper"  style={{ backgroundColor: "#263238" }}>
       <div className="container">
         <Link to="/periPeriBox_List" className="brand-logo">
           Shopping

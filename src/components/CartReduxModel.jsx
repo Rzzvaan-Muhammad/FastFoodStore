@@ -43,9 +43,10 @@ const CaratModel = props => {
   };
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
-        {buttonLabel}
-      </Button>
+      <a className="btn-floating red" color="danger" onClick={toggle}>
+        {/* {buttonLabel} */}
+        <i className="large material-icons">add_shopping_cart</i>
+      </a>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         {/* <ModalHeader toggle={toggle}>{props.Title}</ModalHeader> */}
         <ModalBody>
